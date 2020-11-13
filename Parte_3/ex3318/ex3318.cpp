@@ -2,6 +2,9 @@
 
 using namespace std;
 
+// Descrizione dell'algoritmo sul sito brilliant.org/wiki/trailing-number-of-zeros/
+// Versione ottimizzata: Parte 6, ex6320
+
 int main(){
 	int num;
 	cout << "Inserisci un numero intero positivo: ";

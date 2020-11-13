@@ -47,7 +47,7 @@ int main(){
 		} else if (num >= 4){
 			cout << 'I' << 'V';
 			num -= 4;
-		} else if (num >= 1){
+		} else {
 			cout << 'I';
 			num -= 1;
 		}
