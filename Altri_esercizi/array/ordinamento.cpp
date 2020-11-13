@@ -16,7 +16,7 @@ int main(){
 	for (unsigned int i=0; i<DIM; ++i)
 		cin >> S[i];
 
-	// ALGORITMO - SELECTION SORT	
+	// ALGORITMO - SELECTION SORT
 	int smallest;	
 	for (unsigned int i=0; i<DIM; ++i){
 		smallest=i;
