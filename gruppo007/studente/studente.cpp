@@ -4,8 +4,8 @@
 using namespace std;
 
 struct Studente{
-	string cognome;
-	string nome;
+	string Cognome;
+	string Nome;
 };
 
 const unsigned int DIM = 5;
@@ -18,21 +18,18 @@ int main(){
 		getline(cin, cognome);
 		getline(cin, nome);
 
-		for (int j = 0; j < cognome.length(); ++j)
+		for (int j = 0; j < cognome.length(); ++j){
 			if (cognome[j] >= 97 && cognome[j] <= 127)
 				cognome[j] = cognome[j] - 32;
-		// cout << cognome << endl;
-
-		for (int j = 0; j < nome.length(); ++j)
 			if (nome[j] >= 97 && nome[j] <= 127)
 				nome[j] = nome[j] - 32;
-		// cout << nome << endl;
+		}
 
-		S[i].cognome = cognome;
-		S[i].nome = nome;
+		S[i].Cognome = cognome;
+		S[i].Nome = nome;
 	}
-
-	/*for (int i = 0; i < DIM; ++i){
-		cout << S[i].cognome << " " << S[i].nome << endl;
-	}*/
+	
+	for (int i = 0; i < DIM; ++i){
+		cout << S[i].Cognome << " " << S[i].Nome << endl;
+	}
 }
