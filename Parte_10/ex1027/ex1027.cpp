@@ -17,6 +17,7 @@ void print(const PhoneBook&);
 void sortSurnames(PhoneBook&);
 int FindPos(const PhoneBook&, string);
 void Shift_PhoneBook(PhoneBook&, int);
+void add_ord(PhoneBook&, string, string, int);
 
 void input(PhoneBook& B){
 	string name;
@@ -42,11 +43,16 @@ int main(){
 	print(PB);
 
 	string cognome;
-	cout << "Cerca un cognome: ";
+	cout << "Cerca un cognome:";
 	cin >> cognome;
-	cout << FindPos(PB, cognome)+1 << endl;
+	cout << "Posizione del contatto o del contatto precedente: " << FindPos(PB, cognome)+1 << endl;
 	
-	
+	cout << "Inserisci un nuovo contatto: (cognome/nome/numero)";
+	string s, n;
+	int t;
+	cin >> s >> n >> t;
+	add_ord(PB, s, n, t);
+	print(PB);
 }
 
 void add(PhoneBook& B, string surname, string name, int phoneNumber){
@@ -75,23 +81,37 @@ void sortSurnames(PhoneBook& B){
 }
 
 int FindPos(const PhoneBook& r, string S){
-	int half;
-	if (r.size() == 1)
-		return 0;
-	half = r.size()/2;
-	while (true){
-		if (r.at(half).Surname == S){
-			return half;
-		} else if (r.at(half).Surname < S){
-			half = (half+r.size())/2;
-		} else {
-			half = (half/2);
-		}
+	int mid;
+	bool found = false;
+	int last = r.size()-1;
+	int first = 0;
+
+	while(first <= last && !found){
+		mid = (first + last) / 2;
+		if(r[mid].Surname == S)
+			found = true;
+		else if (S < r[mid].Surname) 
+			last = mid -1;
+		else 
+			first = mid + 1;
 	}
+
+	if (found)
+		return mid;
+	else 
+		return last;
 }
 
 void Shift_PhoneBook(PhoneBook& B, int pos){
 	B.resize(B.size()+1);
-	for (int i = B.size()-1; i >= pos; --i)
+	for (int i = pos+1; i < B.size()-1; ++i)
 		B.at(i+1) = B.at(i);
+}
+
+void add_ord(PhoneBook& B, string surname, string name, int phoneNumber){
+	int pos = FindPos(B, surname);
+	Shift_PhoneBook(B, pos);
+	B.at(pos+1).Surname = surname;
+	B.at(pos+1).Name = name;
+	B.at(pos+1).PhoneNumber = phoneNumber;
 }
