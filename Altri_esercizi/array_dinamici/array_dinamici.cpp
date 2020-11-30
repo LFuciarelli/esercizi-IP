@@ -74,7 +74,7 @@ int get(const dynamic_array &d, int index){
 // array: le sue entry sono contigue in memoria
 void resize(dynamic_array &d, unsigned int new_size){
 	int *T = new int[new_size];
-	for (unsigned int i; i < new_size; ++i)
+	for (unsigned int i = 0; i < d.size; ++i)
 		// utile se new_size < d.size
 		if (i < new_size)
 			*(T+i) = *(d.store+i);
