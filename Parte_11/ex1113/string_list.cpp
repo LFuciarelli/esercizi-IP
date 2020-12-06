@@ -148,19 +148,24 @@ void insertInOrder(list&l, std::string s){
 
 	cell* cur = l;
 	cell* prev = nullptr;
-	while(cur != nullptr){
-		if (cur->info > new_cell->info){	// se cur nell'ordine alfabetico si trova dopo new_cell
-			if (cur == l) {					// dobbiamo inserire new_cell prima di cur
-				l = new_cell;
-				l->next = cur; 			
-			} else {
-				prev->next = new_cell;
-				new_cell->next = cur;
+	if (cur == nullptr){
+		l = new_cell;
+	} else {
+		while(cur != nullptr){
+			if (cur->info > new_cell->info){	// se cur nell'ordine alfabetico si trova dopo new_cell
+				if (cur == l) {					// dobbiamo inserire new_cell prima di cur
+					l = new_cell;
+					l->next = cur; 			
+				} else {
+					prev->next = new_cell;
+					new_cell->next = cur;
+				}
+				break;
+			} else if (cur->info < new_cell->info && cur->next == nullptr){
+				cur->next = new_cell;
 			}
-			break;
+			prev = cur;
+			cur = prev->next;
 		}
-
-		prev = cur;
-		cur = prev->next;
 	}
 }
