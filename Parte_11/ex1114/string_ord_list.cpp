@@ -87,6 +87,7 @@ void deleteAt(list& l, int index){
 			l = l->next;
 		else							// se prev è stato inizializzato, vogliamo farlo puntare a cur->next, non cur
 			prev->next = cur->next;		// così eliminiamo cur
+		delete cur;
 	} else 
 		throw ELEM_NOT_FOUND;
 }
