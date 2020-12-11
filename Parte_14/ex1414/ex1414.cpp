@@ -8,8 +8,7 @@ int MCD(const int& m, const int& n){
 		return m;
 	if (m > n)
 		return MCD(m-n, n);
-	if (n > m)
-		return MCD(m, n-m);
+	return MCD(m, n-m);			// if (n > m)
 }
 
 int main()
