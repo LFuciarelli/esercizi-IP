@@ -109,7 +109,7 @@ string get(list &l, int idx){
 // PRECONDIZIONE: la lista data in input è ordinata
 // POSTCONDIZIONE: la lista modificata con elemento in più è ancora ordinata
 
-void insertInOrder(list &l, ){
+void insertInOrder(list &l, int x){
 	cell *aux = new cell;
 	aux->content = x;
 	

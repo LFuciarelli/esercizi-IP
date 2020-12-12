@@ -6,7 +6,7 @@ typedef int Elem; 						// tipo base della lista (sinonimo di int, però posso f
 
 struct cell {
 	Elem info; 							// contenuto della cella
-	cell* next 							// puntatore alla cella successiva
+	cell* next; 							// puntatore alla cella successiva
 };
 
 typedef cell* list; 					// diamo un nome più evocativo alla nostra lista semplice
