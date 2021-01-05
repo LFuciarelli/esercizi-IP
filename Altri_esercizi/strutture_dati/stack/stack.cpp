@@ -1,3 +1,5 @@
+// LIFO - last in (is the) first out
+
 #include <iostream>
 #include <string>
 
@@ -11,14 +13,14 @@ void create_empty(stack& s){
 	s = nullptr;
 }
 
-void push(stack& s, Elem e){
+void push(stack& s, Elem e){		 	// inserimento in testa
 	cell* new_cell = new cell;			// cell* e stack significano la stessa cosa (typedef sul header)
 	new_cell->head = e;
 	new_cell->next = s;
 	s = new_cell;
 }
 
-void pop(stack& s){
+void pop(stack& s){						// cancellamento in testa
 	if(isEmpty(s))
 		throw "Error: empty list";
 	cell* tmp = s;

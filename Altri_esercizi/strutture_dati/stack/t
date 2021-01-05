@@ -1,0 +1,9 @@
+void dequeue (queue &q){
+	if(q == nullptr)
+		return;
+	if (q->next == nullptr){
+		delete q;
+		return;
+	}
+	dequeue(q->next);
+}

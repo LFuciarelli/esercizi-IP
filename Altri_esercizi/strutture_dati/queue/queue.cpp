@@ -1,16 +1,21 @@
+// FIFO - first in first out
+
 #include <iostream>
 #include <string>
 
 #include "queue.h"
 
 bool isEmpty(const queue& q){
-	return (q.tail==nullptr);
+	return (q.tail==nullptr);			// oppure q.head
 }
 
 void create_empty(queue& q){
 	q.head = nullptr;
 	q.tail = nullptr;
 }
+
+
+// Inserisco dalla coda
 
 void enqueue(queue& q, Elem e){
 	cell *aux = new cell;
@@ -25,6 +30,8 @@ void enqueue(queue& q, Elem e){
 		q.tail = aux;
 	}
 }
+
+// Toglio dalla testa
 
 void dequeue(queue& q){
 	if(isEmpty(q)){
