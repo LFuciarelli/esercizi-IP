@@ -1,0 +1,13 @@
+// Questa definizione è un "segnaposto":
+//
+// Dovete definire il tipo ContactList in modo appropriato
+// rimuovendo "void *" e sostituendolo con una dichiarazione sensata
+
+struct cell{
+	Gprmc info;
+	cell* next;
+};
+
+typedef cell* ContactList;
+
+void tail_insert(ContactList &, Gprmc&);
