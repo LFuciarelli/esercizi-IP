@@ -25,7 +25,7 @@ void pop(stack& s){						// cancellamento in testa
 		throw "Error: empty list";
 	cell* tmp = s;
 	s = s->next;
-	delete tmp;
+	delete tmp;							// se fosse nel main, avrei dovuto scrivere anche temp = nullptr
 }
 
 Elem top(const stack& s){

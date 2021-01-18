@@ -48,6 +48,7 @@ Elem front(const queue& q){
 	if(isEmpty(q)){
 		throw "Empty queue";
 	}
+	// head - info
 	return q.head->head;
 }
 
@@ -55,6 +56,7 @@ Elem back(const queue& q){
 	if(isEmpty(q)){
 		throw "Empty queue";
 	}
+	// tail - info
 	return q.tail->head;
 }
 
