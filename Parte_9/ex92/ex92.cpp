@@ -24,7 +24,7 @@ int main()
 
 		set(a, 3, 1);
 		cout << get(a, 0) << endl; 	// a[0] non verifica l'out of range
-		d_array_sort(a, "selectionsort");
+		d_array_sort(a, "bubblesort");
 		print_d_array(a);
 	} catch (string s) {
 		cerr << s << endl;		// cerr - standard error e cout - standard output (sono della stessa natura)
@@ -98,6 +98,30 @@ void d_array_sort(dynamic_array &d, string algo){
 			int temp = d.store[smallest];
 			d.store[smallest] = d.store[i];
 			d.store[i] = temp;
+		}
+	} else if (algo == "bubblesort"){
+		int temp;
+		for (int i = 0; i < d.size; i++) {
+			for (int j=0; j < d.size-1-i; j++) {
+				if (d.store[j] > d.store[j+1]){
+					// swap
+					temp = d.store[j];
+					d.store[j] = d.store[j+1];
+					d.store[j+1] = temp;
+				}
+			}
+		}
+	} else if (algo == "insertionsort") {
+		for (int i=1; i < d.size; i++){
+			if (d.store[i] < d.store[i-1]){
+				int temp = d.store[i];
+				int index = i;
+				do {
+					d.store[index] = d.store[index-1];
+					index--;
+				} while (index > 0 && d.store[index-1] > temp);
+				d.store[index] = temp;
+			}
 		}
 	} else {
 		string err = "Algoritmo non noto";
